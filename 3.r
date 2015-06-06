@@ -20,6 +20,10 @@ out<-cbind(out, strptime(x, "%Y-%m-%d %H:%M:%S") )
 colnames(out)<-c(colnames1,"DT")
 par(mfrow=c(1,1))
 
-hist(as.numeric(out$Global_active_power), col="red", xlab = "Global Active Power (kilowatts)", main=" Global Active Power" ) 
-dev.copy(png, file="1.png")
+#3
+with(out, plot(DT,Sub_metering_1, type ="l", ylab= "Energy sub metering", xlab=""))
+with(out, points(DT,Sub_metering_2, type ="l", col="red"))
+with(out, points(DT,Sub_metering_3, type ="l", col="blue"))
+legend("topright",col=c("black","red","blue" ),pch="-", legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
+dev.copy(png, file="3.png")
 dev.off()

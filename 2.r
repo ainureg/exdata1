@@ -20,6 +20,10 @@ out<-cbind(out, strptime(x, "%Y-%m-%d %H:%M:%S") )
 colnames(out)<-c(colnames1,"DT")
 par(mfrow=c(1,1))
 
-hist(as.numeric(out$Global_active_power), col="red", xlab = "Global Active Power (kilowatts)", main=" Global Active Power" ) 
-dev.copy(png, file="1.png")
+
+
+#2
+
+plot(out$DT, out$Global_active_power, type="l",ylab ="Global Active Power (kilowatts)", xlab = "")
+dev.copy(png, file="2.png")
 dev.off()
